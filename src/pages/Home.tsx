@@ -25,6 +25,30 @@ const categories = {
   },
 };
 
+const bestSellingCategories = [
+  {
+    name: "Men's Wear",
+    image: "https://images.unsplash.com/photo-1598300185506-1403012899a4",
+    link: "/categories/mens-wear",
+  },
+  {
+    name: "Women's Wear",
+    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38",
+    link: "/categories/womens-wear",
+  },
+  {
+    name: "Kids' Wear",
+    image: "https://images.unsplash.com/photo-1603251564420-8f24c87d4870",
+    link: "/categories/kids-wear",
+  },
+  {
+    name: "Sportswear",
+    image: "https://images.unsplash.com/photo-1596755095361-9d6f7b9202ad",
+    link: "/categories/sportswear",
+  },
+];
+
+
 // 👇 NEW: State to manage selected category
 const Home = () => {
   const [currentCategoryId, setCurrentCategoryId] = useState<string>("mens-wear");
@@ -206,6 +230,48 @@ const category = categories[currentCategoryId]; // This ensures category is neve
         </div>
       </section>
       )}
+       {/* Best-Selling Categories Section */}
+       <section className="py-20 bg-gray-50">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold text-gray-900 mb-12 text-center"
+        >
+          Best-Selling Categories
+        </motion.h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {bestSellingCategories.map((category, index) => (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform duration-300"
+              >
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  className="w-full h-56 object-cover"
+                />
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-semibold mb-4">{category.name}</h3>
+                  <motion.a
+                    href={category.link}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-indigo-600 font-medium inline-flex items-center space-x-2"
+                  >
+                    <span>Shop Now</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
