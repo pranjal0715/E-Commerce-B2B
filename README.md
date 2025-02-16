@@ -1,4 +1,4 @@
-# B2B Clothing Platform
+# E-Commerce B2B Clothing Platform
 
 A modern B2B e-commerce platform for wholesale clothing, built with React, TypeScript, and Tailwind CSS.
 
