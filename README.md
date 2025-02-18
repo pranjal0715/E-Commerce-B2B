@@ -1,4 +1,4 @@
-# B2B Clothing Platform
+# E-Commerce B2B Clothing Platform
 
 A modern B2B e-commerce platform for wholesale clothing, built with React, TypeScript, and Tailwind CSS.
 
@@ -34,7 +34,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd b2b-clothing-platform
+cd e-commerce-b2b-clothing-platform
 ```
 
 2. Install dependencies:
