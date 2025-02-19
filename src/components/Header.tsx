@@ -97,7 +97,7 @@ const Header = () => {
               {/* Cart & Login */}
               <div className="flex items-center space-x-4">
                 <a
-                  href="#"
+                  href="/register"
                   className="text-sm bg-red-600 text-white px-4 py-2 rounded"
                 >
                   Register / Login

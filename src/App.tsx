@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,9 +7,8 @@ import Products from './pages/Products';
 import Category from './pages/Category';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Login from './pages/login';
-import { useEffect } from 'react';
-import Register from './pages/register';
+import Login from './pages/Login'; // Capitalized for consistency
+import Register from './pages/Register'; // Capitalized for consistency
 
 function App() {
   useEffect(() => {
@@ -36,7 +35,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
-            {/* <Route path="/register" element={<Register />} */}
+            <Route path="/register" element={<Register />} /> {/* Fixed closing tag */}
           </Routes>
         </main>
         <Footer />
