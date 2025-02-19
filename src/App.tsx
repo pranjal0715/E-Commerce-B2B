@@ -7,7 +7,9 @@ import Products from './pages/Products';
 import Category from './pages/Category';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Login from './pages/login';
 import { useEffect } from 'react';
+import Register from './pages/register';
 
 function App() {
   useEffect(() => {
@@ -33,6 +35,8 @@ function App() {
             <Route path="/category/:id" element={<Category />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/register" element={<Register />} */}
           </Routes>
         </main>
         <Footer />
