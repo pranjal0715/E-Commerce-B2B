@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart, Search, User } from "lucide-react";
 import AuthModal from "../Auth/AuthModal";
+import MensCategoryPage from "../CategoryMaster/Men";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,16 +61,27 @@ const Header = () => {
 
         {/* Main Navigation */}
         <nav className="bg-gray-700 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="hidden md:flex items-center justify-center space-x-8 h-16">
-              {["Home", "Men", "Women", "Kids", "New Arrivals", "Best Sellers", "Accessories", "Footwear", "Sale", "Customize Your Outfit"].map((item) => (
-                <a key={item} href="#" className="hover:text-gray-300">
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
-        </nav>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="hidden md:flex items-center justify-center space-x-8 h-16">
+      {[
+        { name: "Home", link: "/" },
+        { name: "Men", link: "/category/Men" }, 
+        { name: "Women", link: "/category/women" },
+        { name: "Kids", link: "/category/kids" },
+        { name: "New Arrivals", link: "/category/new-arrivals" },
+        { name: "Best Sellers", link: "/category/best-sellers" },
+        { name: "Accessories", link: "/category/accessories" },
+        { name: "Footwear", link: "/category/footwear" },
+        { name: "Sale", link: "/category/sale" },
+        { name: "Customize Your Outfit", link: "/customize" }
+      ].map((item) => (
+        <a key={item.name} href={item.link} className="hover:text-gray-300">
+          {item.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
 
         {/* Mobile Menu */}
         {isMenuOpen && (

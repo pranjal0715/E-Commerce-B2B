@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 // import Login from './pages/Login'; // Capitalized for consistency
 // import Register from './pages/Register'; // Capitalized for consistency
 import CartPage from './pages/CartPage';
+import MensCategoryPage from './CategoryMaster/Men';
 
 function App() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
             {/* <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} /> Fixed closing tag */}
             <Route path="/cart" element={<CartPage />} />
+            <Route path = "/category/Men" element = {<MensCategoryPage />} />
           </Routes>
         </main>
         <Footer />
