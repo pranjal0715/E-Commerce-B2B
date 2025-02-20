@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart, Search, User } from "lucide-react";
 import AuthModal from "../Auth/AuthModal";
-import MensCategoryPage from "../CategoryMaster/Men";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,8 +65,8 @@ const Header = () => {
       {[
         { name: "Home", link: "/" },
         { name: "Men", link: "/category/Men" }, 
-        { name: "Women", link: "/category/women" },
-        { name: "Kids", link: "/category/kids" },
+        { name: "Women", link: "/category/Women" },
+        { name: "Kids", link: "/category/Kids" },
         { name: "New Arrivals", link: "/category/new-arrivals" },
         { name: "Best Sellers", link: "/category/best-sellers" },
         { name: "Accessories", link: "/category/accessories" },
