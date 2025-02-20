@@ -7,8 +7,8 @@ import Products from './pages/Products';
 import Category from './pages/Category';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Login from './pages/Login'; // Capitalized for consistency
-import Register from './pages/Register'; // Capitalized for consistency
+// import Login from './pages/Login'; // Capitalized for consistency
+// import Register from './pages/Register'; // Capitalized for consistency
 import CartPage from './pages/CartPage';
 
 function App() {
@@ -35,8 +35,8 @@ function App() {
             <Route path="/category/:id" element={<Category />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} /> {/* Fixed closing tag */}
+            {/* <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} /> Fixed closing tag */}
             <Route path="/cart" element={<CartPage />} />
           </Routes>
         </main>
