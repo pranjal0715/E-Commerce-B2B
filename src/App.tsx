@@ -14,6 +14,7 @@ import MensCategoryPage from './CategoryMaster/Men';
 import WomensCategoryPage from './CategoryMaster/Women';
 import KidsCategoryPage from './CategoryMaster/Kids';
 import NewArrivalsPage from './pages/NewArrival';
+import BestSellersPage from './pages/BestSeller';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             <Route path="/category/Women" element = {<WomensCategoryPage />} />
             <Route path="/category/Kids" element = {<KidsCategoryPage />} />
             <Route path="/category/new-arrivals" element={<NewArrivalsPage />} />
+            <Route path="/category/best-sellers" element={<BestSellersPage />} />
           </Routes>
         </main>
         <Footer />
