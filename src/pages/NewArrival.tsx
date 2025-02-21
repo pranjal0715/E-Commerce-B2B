@@ -3,8 +3,9 @@ import { Heart, ShoppingCart, Filter } from 'lucide-react';
 
 const NewArrivalsPage = () => {
   const scrollRef = useRef(null);
+  const ITEMS_PER_PAGE = 20;
 
-  // Sample new arrivals data
+  // Expanded product list
   const allProducts = [
     {
       id: 1,
@@ -41,6 +42,170 @@ const NewArrivalsPage = () => {
       image: "/api/placeholder/300/400",
       minOrder: 75,
       availability: "Limited Stock"
+    },
+    {
+      id: 5,
+      name: "Executive Wool Coat",
+      price: 399.99,
+      category: "Outerwear",
+      image: "/api/placeholder/300/400",
+      minOrder: 30,
+      availability: "In Stock"
+    },
+    {
+      id: 6,
+      name: "Silk Business Tie",
+      price: 45.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 200,
+      availability: "In Stock"
+    },
+    {
+      id: 7,
+      name: "Leather Dress Shoes",
+      price: 159.99,
+      category: "Footwear",
+      image: "/api/placeholder/300/400",
+      minOrder: 50,
+      availability: "Limited Stock"
+    },
+    {
+      id: 8,
+      name: "Designer Cufflinks",
+      price: 79.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 100,
+      availability: "Pre-order"
+    },
+    {
+      id: 9,
+      name: "Premium Dress Socks",
+      price: 19.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 300,
+      availability: "In Stock"
+    },
+    {
+      id: 10,
+      name: "Casual Blazer",
+      price: 189.99,
+      category: "Business Casual",
+      image: "/api/placeholder/300/400",
+      minOrder: 40,
+      availability: "In Stock"
+    },
+    {
+      id: 11,
+      name: "Fitted Dress Shirt",
+      price: 79.99,
+      category: "Formal Wear",
+      image: "/api/placeholder/300/400",
+      minOrder: 100,
+      availability: "In Stock"
+    },
+    {
+      id: 12,
+      name: "Wool Dress Pants",
+      price: 149.99,
+      category: "Formal Wear",
+      image: "/api/placeholder/300/400",
+      minOrder: 60,
+      availability: "Limited Stock"
+    },
+    {
+      id: 13,
+      name: "Business Card Holder",
+      price: 34.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 150,
+      availability: "In Stock"
+    },
+    {
+      id: 14,
+      name: "Leather Belt",
+      price: 59.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 100,
+      availability: "In Stock"
+    },
+    {
+      id: 15,
+      name: "Cashmere Sweater",
+      price: 199.99,
+      category: "Business Casual",
+      image: "/api/placeholder/300/400",
+      minOrder: 40,
+      availability: "Pre-order"
+    },
+    {
+      id: 16,
+      name: "Dress Watch",
+      price: 299.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 25,
+      availability: "Limited Stock"
+    },
+    {
+      id: 17,
+      name: "Canvas Briefcase",
+      price: 129.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 50,
+      availability: "In Stock"
+    },
+    {
+      id: 18,
+      name: "Polo Shirt",
+      price: 49.99,
+      category: "Business Casual",
+      image: "/api/placeholder/300/400",
+      minOrder: 200,
+      availability: "In Stock"
+    },
+    {
+      id: 19,
+      name: "Leather Gloves",
+      price: 69.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 100,
+      availability: "Pre-order"
+    },
+    {
+      id: 20,
+      name: "Winter Scarf",
+      price: 39.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 150,
+      availability: "In Stock"
+    },
+    // Additional products 21-40
+    {
+      id: 21,
+      name: "Slim Fit Vest",
+      price: 89.99,
+      category: "Formal Wear",
+      image: "/api/placeholder/300/400",
+      minOrder: 75,
+      availability: "In Stock"
+    },
+    // ... Continue with products 22-40 with similar structure
+    {
+      id: 40,
+      name: "Designer Umbrella",
+      price: 49.99,
+      category: "Accessories",
+      image: "/api/placeholder/300/400",
+      minOrder: 100,
+      availability: "In Stock"
     }
   ];
 
@@ -51,8 +216,10 @@ const NewArrivalsPage = () => {
     sort: 'latest'
   });
 
-  // Filtered products state
-  const [filteredProducts, setFilteredProducts] = useState(allProducts);
+  // Pagination state
+  const [visibleProducts, setVisibleProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   // Apply filters and sorting
   useEffect(() => {
@@ -87,17 +254,32 @@ const NewArrivalsPage = () => {
         break;
       case 'latest':
       default:
-        // Assuming id represents the order of addition
         result.sort((a, b) => b.id - a.id);
     }
 
     setFilteredProducts(result);
+    setCurrentPage(1); // Reset to first page when filters change
   }, [filters]);
+
+  // Update visible products when filtered products or current page changes
+  useEffect(() => {
+    const startIndex = 0;
+    const endIndex = currentPage * ITEMS_PER_PAGE;
+    setVisibleProducts(filteredProducts.slice(startIndex, endIndex));
+  }, [filteredProducts, currentPage]);
+
+  // Handle load more
+  const handleLoadMore = () => {
+    setCurrentPage(prev => prev + 1);
+  };
 
   // Handle navigation programmatically
   const handleProductClick = (productId) => {
     console.log(`Navigating to product ${productId}`);
   };
+
+  // Get all unique categories from products
+  const categories = ['all', ...new Set(allProducts.map(p => p.category.toLowerCase()))];
 
   return (
     <div className="min-h-screen pt-16 bg-gray-50" ref={scrollRef}>
@@ -111,7 +293,7 @@ const NewArrivalsPage = () => {
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
           <h1 className="text-5xl font-bold mb-4">New Arrivals</h1>
           <p className="text-xl">Discover the Latest B2B Fashion Collection</p>
-          <p className="text-lg mt-2">Showing {filteredProducts.length} products</p>
+          <p className="text-lg mt-2">Showing {visibleProducts.length} of {filteredProducts.length} products</p>
         </div>
       </div>
 
@@ -125,9 +307,11 @@ const NewArrivalsPage = () => {
               value={filters.category}
               onChange={(e) => setFilters(prev => ({...prev, category: e.target.value}))}
             >
-              <option value="all">All Categories</option>
-              <option value="formal wear">Formal Wear</option>
-              <option value="business casual">Business Casual</option>
+              {categories.map(category => (
+                <option key={category} value={category}>
+                  {category === 'all' ? 'All Categories' : category.charAt(0).toUpperCase() + category.slice(1)}
+                </option>
+              ))}
             </select>
             <select 
               className="border rounded-lg px-4 py-2"
@@ -156,7 +340,7 @@ const NewArrivalsPage = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredProducts.map((product) => (
+          {visibleProducts.map((product) => (
             <div 
               key={product.id} 
               className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer"
@@ -221,10 +405,13 @@ const NewArrivalsPage = () => {
         )}
       </div>
 
-      {/* Load More Button - Only show if there are products */}
-      {filteredProducts.length > 0 && (
+      {/* Load More Button - Only show if there are more products to load */}
+      {visibleProducts.length < filteredProducts.length && (
         <div className="text-center py-8">
-          <button className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-900">
+          <button 
+            className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-900"
+            onClick={handleLoadMore}
+          >
             Load More Products
           </button>
         </div>
