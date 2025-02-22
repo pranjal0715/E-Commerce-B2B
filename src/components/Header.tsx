@@ -63,6 +63,7 @@ const Header = () => {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="hidden md:flex items-center justify-center space-x-8 h-16">
       {[
+        
         { name: "Home", link: "/" },
         { name: "Men", link: "/category/Men" }, 
         { name: "Women", link: "/category/Women" },
