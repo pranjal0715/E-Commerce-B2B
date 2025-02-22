@@ -16,6 +16,9 @@ import KidsCategoryPage from './CategoryMaster/Kids';
 import NewArrivalsPage from './pages/NewArrival';
 import BestSellersPage from './pages/BestSeller';
 import CustomizeOutFit from './pages/CustomizeOutFit';
+import SalePage from './CategoryMaster/Sale';  // Ensure correct capitalization
+
+
 
 
 function App() {
@@ -51,6 +54,8 @@ function App() {
             <Route path="/category/new-arrivals" element={<NewArrivalsPage />} />
             <Route path="/category/best-sellers" element={<BestSellersPage />} />
             <Route path="/customize" element={<CustomizeOutFit />} />
+            <Route path="/category/sale" element={<SalePage />} />
+
           </Routes>
         </main>
         <Footer />
