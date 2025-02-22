@@ -16,7 +16,7 @@ import KidsCategoryPage from './CategoryMaster/Kids';
 import NewArrivalsPage from './pages/NewArrival';
 import BestSellersPage from './pages/BestSeller';
 import CustomizeOutFit from './pages/CustomizeOutFit';
-import SalePage from './CategoryMaster/Sale';  // Ensure correct capitalization
+import SalePage from './CategoryMaster/sale';  // Ensure correct capitalization
 
 
 
