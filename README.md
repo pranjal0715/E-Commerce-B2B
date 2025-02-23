@@ -23,6 +23,7 @@ A modern B2B e-commerce platform for wholesale clothing, built with React, TypeS
 - Lucide React Icons
 - Vite
 - Node.JS
+- Express.JS
 
 ## Prerequisites
 
