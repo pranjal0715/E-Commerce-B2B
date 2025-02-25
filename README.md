@@ -24,6 +24,7 @@ A modern B2B e-commerce platform for wholesale clothing, built with React, TypeS
 - Vite
 - Node.JS
 - Express.JS
+- Mongodb
 
 ## Prerequisites
 
