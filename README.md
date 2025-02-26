@@ -55,7 +55,7 @@ The application will be available at `http://localhost:5173`
 ## Project Structure
 
 ```
-b2b-clothing-platform/
+b2b-clothing-platform for frontend/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   │   ├── Header.tsx      # Navigation header
@@ -71,7 +71,32 @@ b2b-clothing-platform/
 │   └── index.css          # Global styles
 ├── public/                 # Static assets
 ├── package.json           # Project dependencies
-└── README.md             # Project documentation
+
+```
+
+```
+b2b-clothing-platform for backend/
+Backend/
+│── node_modules/
+│── src/
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   │   └── authControllers.js
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   ├── models/
+│   │   ├── product.js
+│   │   └── user.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── productRoutes.js
+│   │   └── index.js
+├── .env
+├── package-lock.json
+├── package.json
+└── server.js
+
 ```
 
 ## Routing Structure
